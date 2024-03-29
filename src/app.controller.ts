@@ -10,17 +10,12 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 import { AppService } from './app.service';
-import { Link, LinkSchema } from './schemas/link.schema';
+import { Link } from './schemas/link.schema';
 import { create_link } from './validation/validation';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
-
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
 
   @Post('short_url')
   createShortUrl(@Body() data: { url: string }) {

@@ -7,9 +7,6 @@ import { Link } from './schemas/link.schema';
 @Injectable()
 export class AppService {
   constructor(@InjectModel(Link.name) private linkModel: Model<Link>) {}
-  getHello(): string {
-    return 'Hello World!';
-  }
 
   async create(data: Link): Promise<Link> {
     const short_url = new this.linkModel(data);
