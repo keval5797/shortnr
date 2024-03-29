@@ -15,6 +15,10 @@ export class AppService {
     return short_url.save();
   }
 
+  async getByShortUrl(short_url: string): Promise<Link> {
+    return await this.linkModel.findOne({ short_url });
+  }
+
   generateShortUrl(length: number): string {
     const chars =
       '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
